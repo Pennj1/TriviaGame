@@ -5,16 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-    <script src="assets/javascript/app.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Welcome To My Trivia Game</h1>
-    <button id="startQuiz">Start Quiz</button>
-    <div id="countdown"></div>
-    <div id= "question"></div>
-    <button id="choices">Submit Quiz </button>
-    <div id="results"></div>
-    
+        <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to my Trivia Game</h1>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Start Game</a>
+        </div>    
+<script>
+    var timer = 120;
+    var correctAnswer;
+    var wrongAnswer;
+    var questions = [{
+        question1: "What color is the 1st o in google?",
+        }, {
+        question2: "What is the largest City in North Carolina?",
+        }, {
+        question3: "What was Carl Winslow's profession on Family Matters",
+        }, {
+        question4: "What was the Fresh Prince doing when the guys started making trouble in the neighborhood?",
+        }, {
+        question5: "Who is the only player to be top 10 all time in scoring and assists?",
+        }];
+
+        var choices = [{choices1: ["red", "blue", "green", "yellow"],
+        
+        choices2: ["Raleigh", "Greensboro", "Charlotte", "Winston Salem"],
+
+        choices3: ["Bus Driver", "Police Officer", "Firefighter", "Teacher"],
+
+        choices4: ["shooting some bball", "tossing the pigskin", "running on the track", "rolling with the homies"],
+        
+        choices5: ["Lebron James", "Michael Jordan", "Magic Johnson", "Russell Westbrook"],
+    }]
+        $("#button").on("click", function() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+  
+     function decrement() {  
+    timer--;
+
+    $("#countdown").html("<h2>" + timer + "</h2>");
+
+        if (timer === 0) {
+
+      stop();
+
+      alert("Time Up!");
+    }
+     })
+  </script>   
 </body>
 </html>
